@@ -18,8 +18,11 @@
 //        emailService.enviarEmail(
 //                "jake.timao@gmail.com",
 //                "Teste de envio Spring Boot",
-//                "Se você recebeu esse e-mail, a configuração funcionou 🚀" +
-//                        "\nMatheus Martins Ribeiro é um Gênio!!"
+//                "Este é um teste de envio de e-mail usando Spring Boot.\n" +
+//                        "Se você está lendo isso, significa que tudo está funcionando perfeitamente!\n\n" +
+//                        "Continue explorando, aprendendo e construindo coisas incríveis.\n\n" +
+//                        "Abraços,\n" +
+//                        "Matheus Martins"
 //        );
 //    }
 //}
