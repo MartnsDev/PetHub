@@ -1,0 +1,17 @@
+br/com/alura/adopet/api/api/controller/AutenticacaoControllerTest.class
+br/com/alura/adopet/api/domain/service/AdocaoServiceTest.class
+br/com/alura/adopet/api/api/controller/PetControllerTest.class
+br/com/alura/adopet/api/api/controller/AbrigoControllerTest.class
+br/com/alura/adopet/api/domain/service/AbrigoServiceTest.class
+br/com/alura/adopet/api/domain/repository/PetRepositoryTest.class
+br/com/alura/adopet/api/domain/service/TutorServiceTest.class
+br/com/alura/adopet/api/domain/service/UsuarioServiceTest.class
+br/com/alura/adopet/AdopetApiApplicationTests.class
+br/com/alura/adopet/api/api/controller/AdocaoControllerTest.class
+br/com/alura/adopet/api/domain/repository/UsuarioRepositoryTest.class
+br/com/alura/adopet/api/domain/repository/AdocaoRepositoryTest.class
+br/com/alura/adopet/api/domain/repository/TutorRepositoryTest.class
+br/com/alura/adopet/api/domain/service/EmailServiceTest.class
+br/com/alura/adopet/api/domain/repository/AbrigoRepositoryTest.class
+br/com/alura/adopet/api/api/controller/TutorControllerTest.class
+br/com/alura/adopet/api/domain/service/PetServiceTest.class

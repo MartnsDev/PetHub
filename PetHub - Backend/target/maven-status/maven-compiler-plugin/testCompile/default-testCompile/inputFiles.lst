@@ -1,0 +1,17 @@
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/TutorServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/repository/UsuarioRepositoryTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/AdopetApiApplicationTests.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/api/controller/TutorControllerTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/api/controller/PetControllerTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/AdocaoServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/repository/PetRepositoryTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/api/controller/AutenticacaoControllerTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/repository/AdocaoRepositoryTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/api/controller/AbrigoControllerTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/AbrigoServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/repository/TutorRepositoryTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/EmailServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/PetServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/repository/AbrigoRepositoryTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/domain/service/UsuarioServiceTest.java
+/home/matheus-martins/Documentos/PetHub/PetHub - Backend/src/test/java/br/com/alura/adopet/api/api/controller/AdocaoControllerTest.java
