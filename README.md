@@ -32,7 +32,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - **[Springdoc OpenAPI](https://springdoc.org/)**
 - **[Lombok](https://projectlombok.org/)**
 - **[H2 Database](https://www.h2database.com/) (para testes)**
-
+- **[JUnit 5](https://junit.org/junit5/)**
+- **[Mockito](https://site.mockito.org/)**
 ---
 
 ## 📄 Documentação da API
