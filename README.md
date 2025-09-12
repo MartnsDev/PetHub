@@ -15,22 +15,23 @@ PetHub é um site fictício de adoção de pets, com funcionalidades para cadast
 
 ---
 
-## 🎨 Layout
-
-O projeto desse repositório é apenas a API Backend, mas existe um figma com o layout que está disponível neste link: <a href="https://www.figma.com/file/TlfkDoIu8uyjZNla1T8TpH?embed_host=notion&kind=&node-id=518%3A11&t=esSUkfGQEWUeUASj-1&type=design&viewer=1">Layout no Figma</a>
-
----
-
 ## 🛠 Tecnologias
 
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-- **[Java 17](https://www.oracle.com/java)**
-- **[Spring Boot 3](https://spring.io/projects/spring-boot)**
-- **[Maven](https://maven.apache.org)**
-- **[MySQL](https://www.mysql.com)**
-- **[Hibernate](https://hibernate.org)**
-- **[Flyway](https://flywaydb.org)**
+- **[Java 17](https://www.oracle.com/java/)**
+- **[Spring Boot 3.1](https://spring.io/projects/spring-boot)**
+- **[Maven](https://maven.apache.org/)**
+- **[MySQL](https://www.mysql.com/)**
+- **[Hibernate / JPA](https://hibernate.org/)**
+- **[Flyway](https://flywaydb.org/)**
+- **[Spring Security](https://spring.io/projects/spring-security)**
+- **[JWT (JSON Web Tokens)](https://github.com/jwtk/jjwt)**
+- **[Spring Validation](https://docs.spring.io/spring-framework/reference/validation.html)**
+- **[Spring Mail](https://spring.io/projects/spring-boot)**
+- **[Springdoc OpenAPI](https://springdoc.org/)**
+- **[Lombok](https://projectlombok.org/)**
+- **[H2 Database](https://www.h2database.com/) (para testes)**
 
 ---
 
