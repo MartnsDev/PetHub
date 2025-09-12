@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - PetHub</title>
+    <link rel="stylesheet" href="/domain/src/css/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Lado esquerdo - Ilustração -->
+        <div class="left-side">
+            <div class="brand">
+                <h1>PetHub</h1>
+            </div>
+            
+            <div class="welcome-content">
+                <h2>Boas-vindas!</h2>
+                <p>Que tal mudar sua vida adotando seu novo melhor amigo? Vem com a gente!</p>
+                
+                <div class="illustration">
+                    <div class="pet-circle">
+                        <div class="pet dog"></div>
+                        <div class="pet cat"></div>
+                        <div class="pet rabbit"></div>
+                    </div>
+                    <div class="hearts">
+                        <div class="heart heart-1">💙</div>
+                        <div class="heart heart-2">🧡</div>
+                        <div class="heart heart-3">💚</div>
+                    </div>
+                </div>
+                
+                <p class="footer-text">2024 - Desenvolvido por <a href="https://github.com/MartnsDev">MartinsDev</a></p>
+            </div>
+        </div>
+        
+        <!-- Lado direito - Formulário -->
+        <div class="right-side">
+            <div class="register-form">
+                <div class="form-header">
+                    <div class="brand-mobile">
+                        <h1>adopet</h1>
+                    </div>
+                    <h2>Ainda não tem cadastro?</h2>
+                    <p>Então, antes de buscar seu melhor amigo, precisamos de alguns dados:</p>
+                </div>
+                
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input 
+                                type="text" 
+                                id="nome" 
+                                name="nome" 
+                                placeholder="Digite seu nome completo" 
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Digite seu melhor email" 
+                                required
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="senha">Senha</label>
+                            <input 
+                                type="password" 
+                                id="senha" 
+                                name="senha" 
+                                placeholder="Crie uma senha" 
+                                required
+                                minlength="6"
+                            >
+                        </div>
+                        <div class="form-group half">
+                            <label for="confirmarSenha">Confirma sua senha</label>
+                            <input 
+                                type="password" 
+                                id="confirmarSenha" 
+                                name="confirmarSenha" 
+                                placeholder="Repita a senha" 
+                                required
+                            >
+                        </div>
+                    </div>
+                  
+        
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="termos" required>
+                            <span class="checkmark"></span>
+                            Eu aceito os <a href="#" class="terms-link"> termos de uso</a> e <a href="#" class="terms-link">políticas de privacidade</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="register-btn" id="registerBtn">
+                        <span id="btnText">Cadastrar</span>
+                        <div id="btnLoader" class="loader" style="display: none;"></div>
+                    </button>
+                    
+                    <div id="errorMessage" class="error-message" style="display: none;"></div>
+                    <div id="successMessage" class="success-message" style="display: none;"></div>
+                </form>
+                
+                <div class="login-link">
+                    <p>Já tem conta? <a href="/index.html">Faça login</a></p>
+                </div>
+                
+                <div class="pets-decoration">
+                    <div class="pet-icon pet-icon-1">🐶</div>
+                    <div class="pet-icon pet-icon-2">🐱</div>
+                    <div class="pet-icon pet-icon-3">🐰</div>
+                    <div class="pet-icon pet-icon-4">🐦</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/domain/src/js/cadastrar.js"></script>
+</body>
+</html>
