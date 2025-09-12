@@ -35,7 +35,17 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ---
 
-## Documentação Swagger
+## 📄 Documentação da API
+
+A documentação completa da API pode ser acessada via **Swagger UI**, que fornece uma interface interativa para testar os endpoints.
+
+### 🔗 Acessando a documentação
+
+Após rodar a aplicação localmente, acesse:
+
+```
+http://localhost:8080/swagger-ui.html
+```
 
 ---
 
