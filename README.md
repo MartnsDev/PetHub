@@ -46,6 +46,42 @@ Após rodar a aplicação localmente, acesse:
 ```
 http://localhost:8080/swagger-ui.html
 ```
+ou, dependendo da configuração do Springdoc:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+---
+### 📌 Endpoints principais
+
+A API possui os seguintes recursos:
+
+#### Tutores
+- `POST /tutores` – Cadastrar um novo tutor
+- `GET /tutores` – Listar todos os tutores
+- `PUT /tutores/{id}` – Atualizar dados de um tutor
+- `DELETE /tutores/{id}` – Remover um tutor
+
+#### Abrigos
+- `POST /abrigos` – Cadastrar um novo abrigo
+- `GET /abrigos` – Listar todos os abrigos
+- `PUT /abrigos/{id}` – Atualizar dados de um abrigo
+- `DELETE /abrigos/{id}` – Remover um abrigo
+
+#### Pets
+- `POST /pets` – Cadastrar um pet em um abrigo
+- `GET /pets` – Listar todos os pets
+- `GET /pets/disponiveis` – Listar pets disponíveis para adoção
+- `PUT /pets/{id}` – Atualizar dados de um pet
+- `DELETE /pets/{id}` – Remover um pet
+
+#### Adoções
+- `POST /adocoes` – Solicitar adoção de um pet
+- `PUT /adocoes/{id}/aprovar` – Aprovar adoção
+- `PUT /adocoes/{id}/reprovar` – Reprovar adoção
+- `GET /adocoes` – Listar solicitações de adoção
+
+> Todos os endpoints estão documentados no Swagger, incluindo os modelos de request/response, validações e códigos de status.
 
 ---
 
