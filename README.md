@@ -65,6 +65,8 @@ A API possui os seguintes recursos:
 #### Abrigos
 - `POST /abrigos` – Cadastrar um novo abrigo
 - `GET /abrigos` – Listar todos os abrigos
+- `GET /abrigos/{id}` - Listar aquele abrigo específico (id)
+- `GET /abrigos/{id}/pets` - Lista todos os pets daquele abrigo
 - `PUT /abrigos/{id}` – Atualizar dados de um abrigo
 - `DELETE /abrigos/{id}` – Remover um abrigo
 
