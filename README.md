@@ -2,6 +2,7 @@
 
 PetHub é um site fictício de **adoção de pets**, desenvolvido como uma **API REST em Java**.  
 Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de adoção.
+[![PetHub](https://github.com/MartnsDev/PetHub/blob/de7128d0926ead0a8b8d81287e223c0079262932/petHub.png)](https://github.com/MartnsDev/PetHub/blob/de7128d0926ead0a8b8d81287e223c0079262932/petHub.png)
 
 ---
 
