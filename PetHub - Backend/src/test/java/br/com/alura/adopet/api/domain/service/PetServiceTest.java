@@ -5,6 +5,7 @@ import br.com.alura.adopet.api.domain.model.Abrigo;
 import br.com.alura.adopet.api.domain.model.Pet;
 import br.com.alura.adopet.api.domain.model.enums.TipoPet;
 import br.com.alura.adopet.api.domain.repository.AbrigoRepository;
+import br.com.alura.adopet.api.domain.repository.PetImagemRepository;
 import br.com.alura.adopet.api.domain.repository.PetRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,13 +23,15 @@ class PetServiceTest {
 
     private PetRepository petRepository;
     private AbrigoRepository abrigoRepository;
+    private PetImagemRepository petImagemRepository; // novo mock
     private PetService petService;
 
     @BeforeEach
     void setUp() {
         petRepository = mock(PetRepository.class);
         abrigoRepository = mock(AbrigoRepository.class);
-        petService = new PetService(petRepository, abrigoRepository);
+        petImagemRepository = mock(PetImagemRepository.class); // inicializa mock
+        petService = new PetService(petRepository, abrigoRepository, petImagemRepository);
     }
 
     @Test
@@ -58,9 +60,15 @@ class PetServiceTest {
         when(abrigoRepository.findById(1L)).thenReturn(Optional.of(abrigo));
 
         CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Rex", "SRD", 3, TipoPet.CACHORRO, "médio", BigDecimal.valueOf(20), 1L
+                "Rex",
+                "SRD",
+                3,
+                TipoPet.CACHORRO,
+                "médio",
+                BigDecimal.valueOf(20),
+                1L,                        // abrigoId
+                List.of()                   // lista vazia de arquivos MultipartFile
         );
-
         // Act
         petService.cadastrarPet(1L, dto);
 
@@ -84,9 +92,15 @@ class PetServiceTest {
         // Arrange
         when(abrigoRepository.findById(1L)).thenReturn(Optional.empty());
         CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Rex", "SRD", 3, TipoPet.CACHORRO, "médio", BigDecimal.valueOf(20), 1L
+                "Rex",
+                "SRD",
+                3,
+                TipoPet.CACHORRO,
+                "médio",
+                BigDecimal.valueOf(20),
+                1L,                        // abrigoId
+                List.of()                   // lista vazia de arquivos MultipartFile
         );
-
         // Act & Assert
         assertThrows(EntityNotFoundException.class, () -> petService.cadastrarPet(1L, dto));
         verify(petRepository, never()).save(any());

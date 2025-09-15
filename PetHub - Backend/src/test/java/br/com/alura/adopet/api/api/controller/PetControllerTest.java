@@ -1,7 +1,6 @@
 package br.com.alura.adopet.api.api.controller;
 
-import br.com.alura.adopet.api.domain.model.Pet;
-import br.com.alura.adopet.api.api.dto.abrigoDTO.CadastrarPetDTO;
+import br.com.alura.adopet.api.api.dto.petDTO.PetDTO;
 import br.com.alura.adopet.api.domain.model.enums.TipoPet;
 import br.com.alura.adopet.api.domain.service.PetService;
 import br.com.alura.adopet.api.infra.exceptions.ValidacaoException;
@@ -11,12 +10,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class PetControllerTest {
@@ -34,64 +33,78 @@ class PetControllerTest {
 
     @Test
     void listarTodosDisponiveis_Sucesso() {
-        // Criando pets simulados com todos os campos necessários
-        Pet pet1 = new Pet(1L, TipoPet.CACHORRO, "Rex", "Vira-lata", 3, "Marrom", new BigDecimal("12.5"), false, null, null);
-        Pet pet2 = new Pet(2L, TipoPet.GATO, "Mia", "Siamês", 2, "Branco", new BigDecimal("4.3"), false, null, null);
+        // Arrange
+        PetDTO pet1 = new PetDTO(
+                1L,
+                "Rex",
+                "Vira-lata",
+                3,
+                "Marrom",
+                new BigDecimal("12.5"),
+                TipoPet.CACHORRO.name(),
+                false,
+                List.of("rex.jpg"),
+                "abrigo@email.com"
+        );
 
-        List<Pet> petsMock = List.of(pet1, pet2);
+        PetDTO pet2 = new PetDTO(
+                2L,
+                "Mia",
+                "Siamês",
+                2,
+                "Branco",
+                new BigDecimal("4.3"),
+                TipoPet.GATO.name(),
+                false,
+                List.of("mia.jpg"),
+                "abrigo@email.com"
+        );
 
-        when(petService.listarTodosDisponiveis()).thenReturn(petsMock);
+        List<PetDTO> petsMock = List.of(pet1, pet2);
 
-        ResponseEntity<List<Pet>> response = petController.listarTodosDisponiveis();
+        when(petService.listarTodosDisponiveisDTO()).thenReturn(petsMock);
 
+        // Act
+        ResponseEntity<List<PetDTO>> response = petController.listarTodosDisponiveis();
+
+        // Assert
         assertEquals(200, response.getStatusCodeValue());
         assertEquals(petsMock, response.getBody());
-        verify(petService, times(1)).listarTodosDisponiveis();
+        verify(petService, times(1)).listarTodosDisponiveisDTO();
     }
 
     @Test
-    void cadastrarPet_Sucesso() {
-        Long idAbrigo = 1L;
-        CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Rex",                  // nome
-                "Vira-lata",            // raca
-                3,                      // idade
-                TipoPet.CACHORRO,       // tipo
-                "Marrom",               // cor
-                new BigDecimal("12.5"), // peso
-                idAbrigo                // idAbrigo
-        );
+    void uploadImagens_Sucesso() {
+        // Arrange
+        Long idPet = 1L;
+        MultipartFile mockFile = mock(MultipartFile.class);
+        List<MultipartFile> fotos = List.of(mockFile);
 
-        ResponseEntity<Void> response = petController.cadastrarPet(idAbrigo, dto);
+        // Act
+        ResponseEntity<Void> response = petController.uploadImagens(idPet, fotos);
 
-        assertEquals(201, response.getStatusCodeValue());
-        assertEquals("/abrigos/" + idAbrigo + "/pets", response.getHeaders().getLocation().toString());
-        verify(petService, times(1)).cadastrarPet(idAbrigo, dto);
+        // Assert
+        assertEquals(200, response.getStatusCodeValue());
+        verify(petService, times(1)).salvarImagens(idPet, fotos);
     }
 
-
     @Test
-    void cadastrarPet_ComErro() {
-        Long idAbrigo = 99L;
-        CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Rex",                   // nome
-                "Vira-lata",             // raca
-                3,                       // idade
-                TipoPet.CACHORRO,        // tipo
-                "Marrom",                // cor
-                new BigDecimal("12.5"),  // peso
-                idAbrigo                 // idAbrigo
-        );
+    void uploadImagens_ComErro() {
+        // Arrange
+        Long idPet = 99L;
+        MultipartFile mockFile = mock(MultipartFile.class);
+        List<MultipartFile> fotos = List.of(mockFile);
 
-        doThrow(new ValidacaoException("Abrigo não encontrado")).when(petService).cadastrarPet(idAbrigo, dto);
+        doThrow(new ValidacaoException("Pet não encontrado"))
+                .when(petService).salvarImagens(idPet, fotos);
 
+        // Act + Assert
         ValidacaoException exception = assertThrows(
                 ValidacaoException.class,
-                () -> petController.cadastrarPet(idAbrigo, dto)
+                () -> petController.uploadImagens(idPet, fotos)
         );
 
-        assertEquals("Abrigo não encontrado", exception.getMessage());
-        verify(petService, times(1)).cadastrarPet(idAbrigo, dto);
+        assertEquals("Pet não encontrado", exception.getMessage());
+        verify(petService, times(1)).salvarImagens(idPet, fotos);
     }
-
 }

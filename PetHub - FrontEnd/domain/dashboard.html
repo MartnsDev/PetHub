@@ -1,26 +1,82 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - PetHub</title>
-    <link rel="stylesheet" href="/domain/src/css/dashboard.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Bem-vindo(a), <span id="nomeUsuario"></span>!</h1>
-            <p>Email: <span id="emailUsuario"></span></p>
-            <button id="logoutBtn">Sair</button>
-        </header>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetHub - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo"><i class="fas fa-paw"></i></div>
+          <div class="logo-text">PetHub</div>
+        </div>
+        <ul class="menu">
+          <li>
+            <a href="dashboard.html" class="menu-link active">
+              <i class="fas fa-home"></i><span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="pets/cadastrarPets.html" class="menu-link">
+              <i class="fas fa-plus"></i><span>Cadastrar Pet</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
 
-        <main>
-            <h2>Página inicial</h2>
-            <p>Aqui você pode adicionar mais funcionalidades do PetHub, como ver pets disponíveis, abrigos, etc.</p>
-        </main>
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="navbar-left">
+            <h1 class="navbar-title">Pets Disponíveis para Adoção</h1>
+          </div>
+          <div class="navbar-right" id="userInfo"></div>
+        </nav>
+
+        <!-- Conteúdo -->
+        <section class="content">
+          <div class="cards-grid" id="petsGrid">
+            <!-- Pets serão carregados via JS -->
+          </div>
+        </section>
+      </main>
     </div>
 
-    <script src="/domain/src/js/dashboard.js"></script>
-</body>
+    <!-- Mobile Menu -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="logo"><i class="fas fa-paw"></i></div>
+        <div class="logo-text">PetHub</div>
+      </div>
+      <ul class="menu">
+        <li>
+          <a href="dashboard.html" class="menu-link active">
+            <i class="fas fa-home"></i><span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="pets/cadastrarPets.html" class="menu-link">
+            <i class="fas fa-plus"></i><span>Cadastrar Pet</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- JS -->
+    <script src="src/js/solicitarAdocao.js"></script>
+    <script src="src/js/dashboard.js"></script>
+  </body>
 </html>

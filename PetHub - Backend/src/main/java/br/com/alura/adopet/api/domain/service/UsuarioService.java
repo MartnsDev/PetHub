@@ -13,34 +13,62 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UsuarioService {
 
-    private final UsuarioRepository repository;
-    private final PasswordEncoder passwordEncoder;
+    private final UsuarioRepository repository;       // Repositório de usuários
+    private final PasswordEncoder passwordEncoder;    // Criptografia de senhas
 
-    // Autenticação/Login
+    /**
+     * Autentica um usuário pelo email e senha.
+     * @param email Email do usuário
+     * @param senha Senha em texto plano
+     * @return Usuario autenticado
+     * @throws ValidacaoException caso email não exista ou senha esteja incorreta
+     */
     public Usuario autenticar(String email, String senha) {
+        // Busca usuário pelo email
         Usuario usuario = repository.findByEmail(email)
-                .orElseThrow(() -> new ValidacaoException("Usuário ou senha inválidos"));
+                .orElseThrow(() -> new ValidacaoException("Email ou senha incorretos"));
 
+        // Verifica se a senha informada bate com a senha criptografada
         if (!passwordEncoder.matches(senha, usuario.getSenha())) {
-            throw new ValidacaoException("Usuário ou senha inválidos");
+            throw new ValidacaoException("Email ou senha incorretos");
         }
 
         return usuario;
     }
 
-    // Cadastro
+
+    /**
+     * Cadastra um novo usuário.
+     * @param dto Dados do usuário vindos do frontend
+     * @throws ValidacaoException caso o email já exista
+     */
     @Transactional
     public void cadastrar(CadastrarUsuarioDTO dto) {
-        // Aqui você pode verificar se o email já existe
+        // Verifica se o email já está cadastrado
         if (repository.existsByEmail(dto.email())) {
             throw new ValidacaoException("Email já cadastrado");
         }
 
+        // Cria novo usuário e criptografa a senha
         Usuario usuario = new Usuario();
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
-        usuario.setSenha(passwordEncoder.encode(dto.senha())); // Senha criptografada
+        usuario.setSenha(passwordEncoder.encode(dto.senha()));
 
+        // Salva no banco de dados
         repository.save(usuario);
+    }
+
+    /**
+     * Converte um DTO de cadastro para a entidade Usuario
+     * @param dto Dados do cadastro
+     * @return Usuario
+     */
+    private Usuario fromDTO(CadastrarUsuarioDTO dto) {
+        Usuario usuario = new Usuario();
+        usuario.setNome(dto.nome());
+        usuario.setEmail(dto.email());
+        usuario.setSenha(passwordEncoder.encode(dto.senha()));
+        return usuario;
     }
 }

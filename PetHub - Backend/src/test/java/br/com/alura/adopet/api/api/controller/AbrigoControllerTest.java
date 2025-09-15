@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -87,30 +88,32 @@ class AbrigoControllerTest {
 
     @Test
     void listarPetsDeUmAbrigo() {
+        // Arrange
         List<PetDTO> petsMock = List.of(
                 new PetDTO(
-                        1L,                  // id
-                        "Rex",               // nome
-                        "Vira-lata",         // raca
-                        3,                   // idade
-                        TipoPet.CACHORRO,    // tipo
-                        "Marrom",            // cor
-                        new BigDecimal("12.5") // peso
+                        1L,                           // id
+                        "Rex",                        // nome
+                        "Vira-lata",                  // raca
+                        3,                            // idade
+                        "Marrom",                     // cor
+                        new BigDecimal("12.5"),       // peso
+                        "CACHORRO",                   // tipo (String)
+                        false,                        // adotado
+                        List.of("rex.jpg"),           // imagens
+                        "abrigo@email.com"            // emailAbrigo
                 )
         );
 
-        // Use "1" como String
         when(abrigoService.listarPets("1")).thenReturn(petsMock);
 
+        // Act
         ResponseEntity<List<PetDTO>> response = abrigoController.listarPetsDeUmAbrigo("1");
 
+        // Assert
         assertEquals(200, response.getStatusCodeValue());
         assertEquals(petsMock, response.getBody());
-
-        // Verifique a chamada com String
         verify(abrigoService, times(1)).listarPets("1");
     }
-
 
 
     @Test

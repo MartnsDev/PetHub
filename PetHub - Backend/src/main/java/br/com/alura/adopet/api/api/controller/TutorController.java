@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/tutores")
+@RequestMapping("/tutores") // Define a rota base para operações de tutor
 public class TutorController {
 
     private final TutorService tutorService;
@@ -18,18 +18,17 @@ public class TutorController {
         this.tutorService = tutorService;
     }
 
+    // POST /tutores -> cadastra um novo tutor
     @PostMapping
-    @Transactional
     public ResponseEntity<String> cadastrar(@RequestBody @Valid CadastrarTutorDTO dto) {
-        tutorService.cadastrar(dto);
-        return ResponseEntity.ok("Tutor cadastrado com sucesso!");
+        tutorService.cadastrar(dto); // Chama o service para cadastrar o tutor
+        return ResponseEntity.ok("Tutor cadastrado com sucesso!"); // Retorna 200 OK
     }
 
-
+    // PUT /tutores -> atualiza um tutor existente
     @PutMapping
-    @Transactional
     public ResponseEntity<String> atualizar(@RequestBody @Valid AtualizarTutorDTO dto) {
-        tutorService.atualizar(dto);
-        return ResponseEntity.ok("Tutor atualizado com sucesso!");
+        tutorService.atualizar(dto); // Chama o service para atualizar o tutor
+        return ResponseEntity.ok("Tutor atualizado com sucesso!"); // Retorna 200 OK
     }
 }

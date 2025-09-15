@@ -106,7 +106,7 @@ class AbrigoServiceTest {
         List<PetDTO> pets = abrigoService.listarPets("1");
 
         assertThat(pets).hasSize(1);
-        assertThat(pets.get(0).nome()).isEqualTo("Rex");
+        assertThat(pets.get(0).getNome()).isEqualTo("Rex");
     }
 
     @Test
@@ -116,7 +116,7 @@ class AbrigoServiceTest {
         List<PetDTO> pets = abrigoService.listarPets("Abrigo Teste");
 
         assertThat(pets).hasSize(1);
-        assertThat(pets.get(0).nome()).isEqualTo("Rex");
+        assertThat(pets.get(0).getNome()).isEqualTo("Rex");
     }
 
     @Test
@@ -131,8 +131,14 @@ class AbrigoServiceTest {
     @Test
     void deveCadastrarPetNoAbrigo() {
         CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Bolt", "Poodle", 2, TipoPet.CACHORRO,
-                "Branco", BigDecimal.valueOf(8.0), 1L
+                "Rex",
+                "SRD",
+                3,
+                TipoPet.CACHORRO,
+                "médio",
+                BigDecimal.valueOf(20),
+                1L,                        // abrigoId
+                List.of()                   // lista vazia de arquivos MultipartFile
         );
 
         when(abrigoRepository.findById(1L)).thenReturn(Optional.of(abrigo));
@@ -145,10 +151,15 @@ class AbrigoServiceTest {
     @Test
     void deveLancarExcecaoAoCadastrarPetEmAbrigoInexistente() {
         CadastrarPetDTO dto = new CadastrarPetDTO(
-                "Bolt", "Poodle", 2, TipoPet.CACHORRO,
-                "Branco", BigDecimal.valueOf(8.0), 99L
+                "Rex",
+                "SRD",
+                3,
+                TipoPet.CACHORRO,
+                "médio",
+                BigDecimal.valueOf(20),
+                1L,                        // abrigoId
+                List.of()                   // lista vazia de arquivos MultipartFile
         );
-
         when(abrigoRepository.findById(99L)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> abrigoService.cadastrarPet(99L, dto))

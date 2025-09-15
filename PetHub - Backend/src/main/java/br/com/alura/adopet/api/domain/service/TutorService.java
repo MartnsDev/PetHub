@@ -38,12 +38,17 @@ public class TutorService {
         Tutor tutor = tutorRepository.findById(dto.id())
                 .orElseThrow(() -> new ValidacaoException("Tutor não encontrado!"));
 
+        // Verifica se outro tutor já possui o mesmo email ou telefone
+        boolean duplicado = tutorRepository.existsByEmailOrTelefoneAndIdNot(dto.email(), dto.telefone(), dto.id());
+        if (duplicado) {
+            throw new ValidacaoException("Outro tutor já possui esses dados!");
+        }
+
         tutor.setNome(dto.nome());
         tutor.setTelefone(dto.telefone());
         tutor.setEmail(dto.email());
-
-        tutorRepository.save(tutor);
     }
+
 
 }
 

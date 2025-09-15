@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Senha - PetHub</title>
+    <link rel="stylesheet" href="/domain/src/css/atualizarSenha.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Lado esquerdo - Ilustração -->
+        <div class="left-side">
+            <div class="brand">
+                <h1>PetHub</h1>
+            </div>
+            
+            <div class="welcome-content">
+                <h2>Esqueceu sua senha?</h2>
+                <p>Não se preocupe! Vamos ajudá-lo a recuperar o acesso à sua conta de forma segura.</p>
+                
+                <div class="illustration">
+                    <div class="security-circle">
+                        <div class="security-icon">🔐</div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-key key-1">🔑</div>
+                        <div class="floating-key key-2">✉️</div>
+                    </div>
+                </div>
+                
+                <p class="footer-text">2025 - Desenvolvido por <a href="https://github.com/MartnsDev">MartinsDev</a></p>
+            </div>
+        </div>
+        
+        <!-- Lado direito - Formulário -->
+        <div class="right-side">
+            <div class="reset-form">
+                <div class="brand-mobile">
+                    <h1>PetHub</h1>
+                </div>
+                
+                <div class="form-header">
+                    <h2 id="formTitle">Recuperar Senha</h2>
+                    <p id="formDescription">Digite seu email para receber o código de verificação</p>
+                </div>
+
+                <!-- Indicador de etapas -->
+                <div class="steps-indicator">
+                    <div class="step active" id="step1"></div>
+                    <div class="step" id="step2"></div>
+                    <div class="step" id="step3"></div>
+                </div>
+
+                <!-- Mensagens -->
+                <div id="messageContainer"></div>
+                
+                <!-- Etapa 1: Email -->
+                <div class="form-step active" id="emailStep">
+                    <form id="emailForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Digite seu email cadastrado" 
+                                required
+                            >
+                        </div>
+                        
+                        <button type="submit" class="form-btn" id="emailBtn">
+                            <span id="emailBtnText">Enviar Código</span>
+                            <div id="emailLoader" class="loader" style="display: none;"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Etapa 2: Verificação do código -->
+                <div class="form-step" id="codeStep">
+                    <form id="codeForm">
+                        <div class="form-group">
+                            <label>Código de Verificação</label>
+                            <div class="code-inputs">
+                                <input type="text" class="code-input" maxlength="1" id="code1">
+                                <input type="text" class="code-input" maxlength="1" id="code2">
+                                <input type="text" class="code-input" maxlength="1" id="code3">
+                                <input type="text" class="code-input" maxlength="1" id="code4">
+                                <input type="text" class="code-input" maxlength="1" id="code5">
+                                <input type="text" class="code-input" maxlength="1" id="code6">
+                            </div>
+                            <small style="color: #6B7280; font-size: 0.8rem; text-align: center; display: block; margin-top: 0.5rem;">
+                                Digite o código de 6 dígitos enviado para seu email
+                            </small>
+                        </div>
+                        
+                        <button type="submit" class="form-btn" id="codeBtn">
+                            <span id="codeBtnText">Verificar Código</span>
+                            <div id="codeLoader" class="loader" style="display: none;"></div>
+                        </button>
+
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <button type="button" id="resendBtn" style="background: none; border: none; color: #10B981; cursor: pointer; text-decoration: underline; font-size: 0.9rem;">
+                                Reenviar código
+                            </button>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <button type="button" id="cancelBtn" style="background: none; border: none; color: #EF4444; cursor: pointer; text-decoration: underline; font-size: 0.9rem;">
+                                Cancelar e voltar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Etapa 3: Nova senha -->
+                <div class="form-step" id="passwordStep">
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label for="newPassword">Nova Senha</label>
+                            <input 
+                                type="password" 
+                                id="newPassword" 
+                                name="newPassword" 
+                                placeholder="Digite sua nova senha" 
+                                required
+                                minlength="6"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha</label>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword" 
+                                placeholder="Digite novamente sua nova senha" 
+                                required
+                                minlength="6"
+                            >
+                        </div>
+                        
+                        <button type="submit" class="form-btn" id="passwordBtn">
+                            <span id="passwordBtnText">Atualizar Senha</span>
+                            <div id="passwordLoader" class="loader" style="display: none;"></div>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/index.html">← Voltar ao login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/atualizarSenha.js"></script>
+</body>
+</html>

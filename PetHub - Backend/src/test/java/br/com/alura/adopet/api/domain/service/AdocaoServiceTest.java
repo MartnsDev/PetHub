@@ -68,17 +68,18 @@ class AdocaoServiceTest {
         );
 
         Pet pet = new Pet(
-                1L,
-                TipoPet.CACHORRO,
-                "Rex",
-                "SRD",
-                3,
-                "médio",
-                BigDecimal.valueOf(200),
-                false,      // adotado
-                abrigo,
-                null        // adocao
+                1L,                    // id
+                TipoPet.CACHORRO,      // tipo
+                "Rex",                 // nome
+                "SRD",                 // raca
+                3,                     // idade
+                "médio",               // cor
+                new ArrayList<>(),     // imagens
+                new BigDecimal("12.5"),// peso
+                false,                 // adotado
+                abrigo                 // abrigo
         );
+
 
         when(tutorRepository.findById(1L)).thenReturn(Optional.of(tutor));
         when(petRepository.findById(1L)).thenReturn(Optional.of(pet));
@@ -123,17 +124,19 @@ class AdocaoServiceTest {
         );
 
         Pet pet = new Pet(
-                1L,
-                TipoPet.CACHORRO,
-                "Luna",
-                "Poodle",
-                2,
-                "pequeno",
-                BigDecimal.valueOf(300),
-                false,
-                abrigo,
-                null
+                1L,                    // id
+                TipoPet.CACHORRO,      // tipo
+                "Rex",                 // nome
+                "SRD",                 // raca
+                3,                     // idade
+                "médio",               // cor
+                new ArrayList<>(),     // imagens
+                new BigDecimal("12.5"),// peso
+                false,                 // adotado
+                abrigo                 // abrigo
         );
+
+
 
         Adocao adocao = new Adocao(tutor, pet, "motivo");
 
@@ -165,17 +168,18 @@ class AdocaoServiceTest {
         );
 
         Pet pet = new Pet(
-                1L,
-                TipoPet.CACHORRO,
-                "Bolt",
-                "SRD",
-                1,
-                "grande",
-                BigDecimal.valueOf(150),
-                false,
-                abrigo,
-                null
+                1L,                    // id
+                TipoPet.CACHORRO,      // tipo
+                "Rex",                 // nome
+                "SRD",                 // raca
+                3,                     // idade
+                "médio",               // cor
+                new ArrayList<>(),     // imagens
+                new BigDecimal("12.5"),// peso
+                false,                 // adotado
+                abrigo                 // abrigo
         );
+
 
         Adocao adocao = new Adocao(tutor, pet, "motivo");
 

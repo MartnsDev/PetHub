@@ -15,43 +15,47 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/auth")
-@RequiredArgsConstructor
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@RequestMapping("/auth") // Define a rota base para autenticação
+@RequiredArgsConstructor // Cria construtor automaticamente para as final fields
 public class AutenticacaoController {
 
-    private final UsuarioService usuarioService;
-    private final JwtService jwtService;
+    private final UsuarioService usuarioService; // Serviço de usuários
+    private final JwtService jwtService;         // Serviço de JWT
 
+    // POST /auth/cadastro -> Cadastra um novo usuário
     @PostMapping("/cadastro")
     public ResponseEntity<ApiResponse> cadastrar(@RequestBody @Valid CadastrarUsuarioDTO dto) {
-        usuarioService.cadastrar(dto); // pode lançar ValidacaoException
+        usuarioService.cadastrar(dto); // Chama service para criar usuário (pode lançar ValidacaoException)
+
+        // Cria resposta customizada com status de sucesso
         ApiResponse response = new ApiResponse(
-                true,
-                "Usuário cadastrado com sucesso",
-                null,
-                LocalDateTime.now()
+                true, // sucesso
+                "Usuário cadastrado com sucesso", // mensagem
+                null, // dados adicionais (nenhum)
+                LocalDateTime.now() // timestamp
         );
-        return ResponseEntity.ok(response);
+
+        return ResponseEntity.ok(response); // Retorna 200 OK com a resposta
     }
 
-
-
+    // POST /auth/login -> Autentica usuário e gera token JWT
     @PostMapping("/login")
     public ResponseEntity<TokenUsuarioDTO> login(@RequestBody LoginUsuarioDTO dto) {
+        // Autentica usuário com email e senha
         Usuario usuario = usuarioService.autenticar(dto.email(), dto.senha());
 
-        String token = jwtService.gerarToken(usuario); // gera o JWT
+        // Gera token JWT para o usuário autenticado
+        String token = jwtService.gerarToken(usuario);
 
+        // Cria DTO de resposta contendo o token e informações do usuário
         TokenUsuarioDTO response = new TokenUsuarioDTO(
-                token,
-                usuario.getEmail(),
-                usuario.getNome(),
-                "Login realizado com sucesso!"
+                token,                  // token JWT
+                usuario.getEmail(),     // email do usuário
+                usuario.getNome(),      // nome do usuário
+                "Login realizado com sucesso!" // mensagem de sucesso
         );
-        return ResponseEntity.ok(response);
+
+        return ResponseEntity.ok(response); // Retorna 200 OK com o token
     }
 
-
 }
-
