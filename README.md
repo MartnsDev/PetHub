@@ -1,20 +1,28 @@
-## 💻 Sobre o projeto
+# 🐾 PetHub
 
-PetHub é um site fictício de adoção de pets, com funcionalidades para cadastro de tutores, de abrigos e de pets, além de solicitação de adoções. Nesse repositório o projeto será uma API Rest em Java do Adopet.
-
----
-
-## ⚙️ Funcionalidades
-
-- [x] Cadastro/atualização de tutores;
-- [x] Cadastro de abrigos;
-- [x] Cadastro de pets do abrigo;
-- [x] Listagem de pets disponíveis para adoção;
-- [x] Solicitação de adoção;
-- [x] Aprovação/reprovação de adoção;
+PetHub é um site fictício de **adoção de pets**, desenvolvido como uma **API REST em Java**.  
+Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de adoção.
 
 ---
 
+## 💡 Funcionalidades
+
+### 🧑‍🤝‍🧑 Tutores
+- [x] Cadastro de tutores  
+- [x] Atualização de dados de tutores  
+
+### 🏠 Abrigos
+- [x] Cadastro de abrigos  
+
+### 🐶 Pets
+- [x] Cadastro de pets vinculados a um abrigo  
+- [x] Listagem de pets disponíveis para adoção  
+
+### 📝 Adoções
+- [x] Solicitação de adoção  
+- [x] Aprovação ou reprovação de solicitações  
+
+---
 ## 🛠 Tecnologias
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
