@@ -41,6 +41,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 A documentação completa da API pode ser acessada via **Swagger UI**, que fornece uma interface interativa para testar os endpoints.
 
 ### 🔗 Acessando a documentação
+[![Documentação Swagger](Swagger-Doc.png)](https://github.com/MartnsDev/PetHub/blob/96685891faee03d7f33538b77c1d26e7027bca1c/Swagger-Doc.png)
 
 Após rodar a aplicação localmente, acesse:
 
