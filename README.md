@@ -1,4 +1,4 @@
-# 🐾 PetHub
+# 🐾 PetHub (Desenvolvimento)
 
 PetHub é um site fictício de **adoção de pets**, desenvolvido como uma **API REST em Java**.  
 Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de adoção.
