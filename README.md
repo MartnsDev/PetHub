@@ -10,9 +10,8 @@ Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de 
 
 ### 🧑‍🤝‍🧑 Tutores
 - [x] Cadastro de tutores
-- [x] Login de tutores
-- [x] Atualização de senha com código de autenticação enviado por e-mail
 - [x] Atualização de dados de tutores
+- [x] Atualização de senha com código de autenticação enviado por e-mail
 - [x] Listagem de tutores
 - [x] Exclusão de tutores
 
@@ -77,12 +76,11 @@ http://localhost:8080/swagger-ui/index.html
 ## 🔑 Endpoints principais
 
 ### Tutores
-- `POST /tutores` – Cadastrar um novo tutor  
-- `POST /tutores/login` – Login de tutor  
-- `PUT /tutores/atualizar-senha` – Atualizar senha com código de autenticação  
-- `GET /tutores` – Listar todos os tutores  
-- `PUT /tutores/{id}` – Atualizar dados de um tutor  
-- `DELETE /tutores/{id}` – Remover um tutor  
+- `POST /tutores` – Cadastrar um novo tutor
+- `PUT /tutores/atualizar-senha` – Atualizar senha com código de autenticação enviado por e-mail
+- `GET /tutores` – Listar todos os tutores
+- `PUT /tutores/{id}` – Atualizar dados de um tutor
+- `DELETE /tutores/{id}` – Remover um tutor
 
 ### Abrigos
 - `POST /abrigos` – Cadastrar um novo abrigo  
