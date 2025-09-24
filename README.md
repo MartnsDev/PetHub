@@ -9,19 +9,29 @@ Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de 
 ## 💡 Funcionalidades
 
 ### 🧑‍🤝‍🧑 Tutores
-- [x] Cadastro de tutores  
-- [x] Atualização de dados de tutores  
+- [x] Cadastro de tutores
+- [x] Login de tutores
+- [x] Atualização de senha com código de autenticação enviado por e-mail
+- [x] Atualização de dados de tutores
+- [x] Listagem de tutores
+- [x] Exclusão de tutores
 
 ### 🏠 Abrigos
-- [x] Cadastro de abrigos  
+- [x] Cadastro de abrigos
+- [x] Listagem de abrigos
+- [x] Listagem de pets vinculados a um abrigo
+- [x] Atualização e exclusão de abrigos
 
 ### 🐶 Pets
-- [x] Cadastro de pets vinculados a um abrigo  
-- [x] Listagem de pets disponíveis para adoção  
+- [x] Cadastro de pets vinculados a um abrigo
+- [x] Listagem de todos os pets
+- [x] Listagem de pets disponíveis para adoção
+- [x] Atualização e exclusão de pets
 
 ### 📝 Adoções
-- [x] Solicitação de adoção  
-- [x] Aprovação ou reprovação de solicitações  
+- [x] Solicitação de adoção
+- [x] Aprovação ou reprovação de solicitações
+- [x] Listagem de solicitações de adoção
 
 ---
 ## 🛠 Tecnologias
@@ -63,45 +73,44 @@ ou, dependendo da configuração do Springdoc:
 http://localhost:8080/swagger-ui/index.html
 ```
 ---
-### 📌 Endpoints principais
 
-A API possui os seguintes recursos:
+## 🔑 Endpoints principais
 
-#### Tutores
-- `POST /tutores` – Cadastrar um novo tutor
-- `GET /tutores` – Listar todos os tutores
-- `PUT /tutores/{id}` – Atualizar dados de um tutor
-- `DELETE /tutores/{id}` – Remover um tutor
+### Tutores
+- `POST /tutores` – Cadastrar um novo tutor  
+- `POST /tutores/login` – Login de tutor  
+- `PUT /tutores/atualizar-senha` – Atualizar senha com código de autenticação  
+- `GET /tutores` – Listar todos os tutores  
+- `PUT /tutores/{id}` – Atualizar dados de um tutor  
+- `DELETE /tutores/{id}` – Remover um tutor  
 
-#### Abrigos
-- `POST /abrigos` – Cadastrar um novo abrigo
-- `GET /abrigos` – Listar todos os abrigos
-- `GET /abrigos/{id}` - Listar aquele abrigo específico (id)
-- `GET /abrigos/{id}/pets` - Lista todos os pets daquele abrigo
-- `PUT /abrigos/{id}` – Atualizar dados de um abrigo
-- `DELETE /abrigos/{id}` – Remover um abrigo
+### Abrigos
+- `POST /abrigos` – Cadastrar um novo abrigo  
+- `GET /abrigos` – Listar todos os abrigos  
+- `GET /abrigos/{id}` – Listar abrigo específico  
+- `GET /abrigos/{id}/pets` – Listar pets daquele abrigo  
+- `PUT /abrigos/{id}` – Atualizar dados de um abrigo  
+- `DELETE /abrigos/{id}` – Remover um abrigo  
 
-#### Pets
-- `POST /pets` – Cadastrar um pet em um abrigo
-- `GET /pets` – Listar todos os pets
-- `GET /pets/disponiveis` – Listar pets disponíveis para adoção
-- `PUT /pets/{id}` – Atualizar dados de um pet
-- `DELETE /pets/{id}` – Remover um pet
+### Pets
+- `POST /pets` – Cadastrar um pet em um abrigo  
+- `GET /pets` – Listar todos os pets  
+- `GET /pets/disponiveis` – Listar pets disponíveis para adoção  
+- `PUT /pets/{id}` – Atualizar dados de um pet  
+- `DELETE /pets/{id}` – Remover um pet  
 
-#### Adoções
-- `POST /adocoes` – Solicitar adoção de um pet
-- `PUT /adocoes/{id}/aprovar` – Aprovar adoção
-- `PUT /adocoes/{id}/reprovar` – Reprovar adoção
-- `GET /adocoes` – Listar solicitações de adoção
+### Adoções
+- `POST /adocoes` – Solicitar adoção de um pet  
+- `PUT /adocoes/{id}/aprovar` – Aprovar adoção  
+- `PUT /adocoes/{id}/reprovar` – Reprovar adoção  
+- `GET /adocoes` – Listar solicitações de adoção  
 
-> Todos os endpoints estão documentados no Swagger, incluindo os modelos de request/response, validações e códigos de status.
+> Todos os endpoints estão documentados no Swagger, incluindo modelos de request/response, validações e códigos de status.
 
 ---
 
 ## 📝 Licença
 
-O projeto desse repositório inicialmente foi desenvolvido por [Alura](https://www.alura.com.br) e utilizado nos cursos de boas práticas de programação com Java.
+O projeto desse repositório foi inicialmente desenvolvido por [Alura](https://www.alura.com.br) e utilizado nos cursos de boas práticas de programação com Java.  
 
 Instrutor: [Rodrigo Ferreira](https://cursos.alura.com.br/user/rodrigo-ferreira)
-
----
