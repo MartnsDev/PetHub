@@ -106,7 +106,7 @@ http://localhost:8080/swagger-ui/index.html
 > Todos os endpoints estão documentados no Swagger, incluindo modelos de request/response, validações e códigos de status.
 
 ---
-Backend Compĺeto
+Backend Completo
 ---
 
 ## 📝 Licença
