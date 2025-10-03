@@ -1,4 +1,4 @@
-# 🐾 PetHub (Desenvolvimento)
+# 🐾 PetHub 
 
 PetHub é um site fictício de **adoção de pets**, desenvolvido como uma **API REST em Java**.  
 Ele permite gerenciar tutores, abrigos e pets, além de facilitar o processo de adoção.
@@ -105,6 +105,8 @@ http://localhost:8080/swagger-ui/index.html
 
 > Todos os endpoints estão documentados no Swagger, incluindo modelos de request/response, validações e códigos de status.
 
+---
+Backend Compĺeto
 ---
 
 ## 📝 Licença
